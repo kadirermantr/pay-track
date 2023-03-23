@@ -22,7 +22,9 @@ class AuthController extends Controller
 
         $user->save();
 
-        return response()->json(['message' => 'Successfully created user!'], 201);
+        return response()->json([
+            'message' => 'Successfully created user!',
+        ], 201);
     }
 
     public function login(AuthLoginRequest $request): JsonResponse
@@ -40,7 +42,9 @@ class AuthController extends Controller
             ]);
         }
 
-        return response()->json(['error' => 'Unauthorized'], 401);
+        return response()->json([
+            'error' => 'Unauthorized',
+        ], 401);
     }
 
     public function logout(): JsonResponse
@@ -51,6 +55,8 @@ class AuthController extends Controller
             return response()->json(['success' => 'Successfully logged out']);
         }
 
-        return response()->json(['error' => 'Unauthorized'], 401);
+        return response()->json([
+            'error' => 'Unauthorized',
+        ], 401);
     }
 }
