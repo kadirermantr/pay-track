@@ -14,13 +14,11 @@ class AuthController extends Controller
 {
     public function register(AuthRegisterRequest $request): JsonResponse
     {
-        $user = new User([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
-
-        $user->save();
 
         return response()->json([
             'message' => 'Successfully created user!',
