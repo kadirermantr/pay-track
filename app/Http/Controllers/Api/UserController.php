@@ -8,9 +8,6 @@ use Illuminate\Http\JsonResponse;
 
 class UserController extends Controller
 {
-    /**
-     * @return JsonResponse
-     */
     public function index(): JsonResponse
     {
         $users = User::all();
@@ -18,19 +15,11 @@ class UserController extends Controller
         return response()->json(['users' => $users]);
     }
 
-    /**
-     * @param User $user
-     * @return JsonResponse
-     */
     public function show(User $user): JsonResponse
     {
         return response()->json(['user' => $user]);
     }
 
-    /**
-     * @param User $user
-     * @return JsonResponse
-     */
     public function update(User $user): JsonResponse
     {
         $user->update(request()->all());
@@ -38,10 +27,6 @@ class UserController extends Controller
         return response()->json(['user' => $user]);
     }
 
-    /**
-     * @param User $user
-     * @return JsonResponse
-     */
     public function destroy(User $user): JsonResponse
     {
         $user->delete();

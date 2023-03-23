@@ -51,9 +51,6 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param $request
-     * @param Throwable $e
-     * @return JsonResponse
      * @throws Throwable
      */
     public function render($request, Throwable $e): JsonResponse
