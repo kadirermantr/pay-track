@@ -15,7 +15,8 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'nullable|string',
+            'firstname' => 'nullable|string',
+            'lastname' => 'nullable|string',
             'email' => 'nullable|email|unique:users',
         ];
     }
