@@ -42,4 +42,13 @@ class UserController extends Controller
             'message' => 'User deleted successfully',
         ]);
     }
+
+    public function favorites(User $user): JsonResponse
+    {
+        $favorites = $user->favorites()->get();
+
+        return response()->json([
+            'favorites' => $favorites,
+        ]);
+    }
 }

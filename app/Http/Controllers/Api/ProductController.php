@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -53,6 +54,42 @@ class ProductController extends Controller
 
         return response()->json([
             'message' => 'Product deleted successfully',
+        ]);
+    }
+
+    public function addFavorite(Product $product): JsonResponse
+    {
+        $user = Auth::user();
+        $favorites = $user->favorites()->get();
+
+        if ($favorites->contains($product)) {
+            return response()->json([
+                'message' => 'Product already added to favorites',
+            ]);
+        }
+
+        $user->favorites()->sync($product->id, false);
+
+        return response()->json([
+            'message' => 'Product added to favorites successfully',
+        ]);
+    }
+
+    public function removeFavorite(Product $product): JsonResponse
+    {
+        $user = Auth::user();
+        $favorites = $user->favorites()->get();
+
+        if (!$favorites->contains($product)) {
+            return response()->json([
+                'message' => 'Product not found in favorites',
+            ]);
+        }
+
+        $user->favorites()->detach($product);
+
+        return response()->json([
+            'message' => 'Product removed from favorites successfully',
         ]);
     }
 }

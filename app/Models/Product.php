@@ -20,4 +20,11 @@ class Product extends Model
         'stock',
         'category_id',
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $hidden = [
+        'pivot',
+    ];
 }
