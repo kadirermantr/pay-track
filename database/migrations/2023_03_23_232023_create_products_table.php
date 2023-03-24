@@ -19,7 +19,12 @@ return new class extends Migration
             $table->string('image')->nullable()->default('https://i.hizliresim.com/qchbfzl.png');
             $table->double('price');
             $table->integer('stock')->nullable()->default(0);
-            $table->foreignIdFor(Category::class)->constrained();
+
+            $table->foreignIdFor(Category::class)
+                ->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
             $table->timestamps();
         });
     }
