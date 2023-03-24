@@ -28,6 +28,7 @@ Route::group(['prefix' => 'v1'], function () {
         Route::apiResource('categories', CategoryController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
         Route::apiResource('products', ProductController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
 
+        Route::get('users/{user}/products', [UserController::class, 'products']);
         Route::get('users/{user}/favorites', [UserController::class, 'favorites']);
         Route::post('products/{product}/favorite', [ProductController::class, 'addFavorite']);
         Route::delete('products/{product}/favorite', [ProductController::class, 'removeFavorite']);

@@ -43,6 +43,15 @@ class UserController extends Controller
         ]);
     }
 
+    public function products(User $user): JsonResponse
+    {
+        $products = $user->products()->get();
+
+        return response()->json([
+            'products' => $products,
+        ]);
+    }
+
     public function favorites(User $user): JsonResponse
     {
         $favorites = $user->favorites()->get();

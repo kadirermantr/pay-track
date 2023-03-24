@@ -45,6 +45,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function products(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class, 'user_products');
+    }
+
     public function favorites(): BelongsToMany
     {
         return $this->belongsToMany(Product::class, 'user_favorites');
