@@ -29,7 +29,7 @@ class ProductController extends Controller
     public function store(ProductRequest $request): JsonResponse
     {
         $product = Product::create(
-            $request->only('name', 'description', 'image', 'price', 'stock', 'category_id')
+            $request->validated()
         );
 
         return response()->json([
@@ -40,7 +40,7 @@ class ProductController extends Controller
     public function update(ProductRequest $request, Product $product): JsonResponse
     {
         $product->update(
-            $request->only('name', 'description', 'image', 'price', 'stock', 'category_id')
+            $request->validated()
         );
 
         return response()->json([
