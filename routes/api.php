@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\ShowcaseController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,7 @@ Route::group(['prefix' => 'v1'], function () {
         Route::post('logout', [AuthController::class, 'logout']);
 
         Route::apiResource('users', UserController::class)->only(['index', 'show', 'update', 'destroy']);
+        Route::apiResource('showcases', ShowcaseController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
         Route::apiResource('categories', CategoryController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
         Route::apiResource('products', ProductController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
 
