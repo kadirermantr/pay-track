@@ -18,13 +18,11 @@ return new class extends Migration
 
             $table->foreignIdFor(User::class)
                 ->constrained()
-                ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
             $table->foreignIdFor(Product::class)
                 ->constrained()
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+                ->cascadeOnDelete();
         });
     }
 

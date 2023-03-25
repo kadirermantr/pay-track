@@ -22,7 +22,6 @@ return new class extends Migration
 
             $table->foreignIdFor(Category::class)
                 ->constrained()
-                ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
             $table->timestamps();
