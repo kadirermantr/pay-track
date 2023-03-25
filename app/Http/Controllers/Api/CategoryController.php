@@ -31,7 +31,7 @@ class CategoryController extends Controller
 
         return response()->json([
             'category' => $category,
-        ]);
+        ], 201);
     }
 
     public function update(CategoryRequest $request, Category $category): JsonResponse

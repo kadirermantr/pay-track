@@ -34,7 +34,7 @@ class ShowcaseController extends Controller
 
         return response()->json([
             'showcase' => $showcase,
-        ]);
+        ], 201);
     }
 
     public function update(ShowcaseRequest $request, Showcase $showcase): JsonResponse

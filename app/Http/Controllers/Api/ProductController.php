@@ -34,7 +34,7 @@ class ProductController extends Controller
 
         return response()->json([
             'product' => $product,
-        ]);
+        ], 201);
     }
 
     public function update(ProductRequest $request, Product $product): JsonResponse
