@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
+use App\Http\Resources\BasketResource;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -59,6 +60,15 @@ class UserController extends Controller
 
         return response()->json([
             'favorites' => $favorites,
+        ]);
+    }
+
+    public function baskets(User $user): JsonResponse
+    {
+        $baskets = $user->baskets()->get();
+
+        return response()->json([
+            'baskets' => BasketResource::collection($baskets),
         ]);
     }
 }

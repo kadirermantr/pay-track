@@ -35,7 +35,10 @@ Route::group(['prefix' => 'v1'], function () {
 
         Route::get('users/{user}/products', [UserController::class, 'products']);
         Route::get('users/{user}/favorites', [UserController::class, 'favorites']);
+        Route::get('users/{user}/baskets', [UserController::class, 'baskets']);
         Route::post('products/{product}/favorite', [ProductController::class, 'addFavorite']);
         Route::delete('products/{product}/favorite', [ProductController::class, 'removeFavorite']);
+        Route::post('products/{product}/basket', [ProductController::class, 'addBasket']);
+        Route::delete('products/{product}/basket', [ProductController::class, 'removeBasket']);
     });
 });
