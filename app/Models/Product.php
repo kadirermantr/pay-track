@@ -28,4 +28,14 @@ class Product extends Model
     protected $hidden = [
         'pivot',
     ];
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function showcase(): BelongsTo
+    {
+        return $this->belongsTo(Showcase::class);
+    }
 }
