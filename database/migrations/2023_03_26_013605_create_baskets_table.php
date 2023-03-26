@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->constrained('users');
             $table->integer('discount_rate')->nullable();
             $table->integer('discounted_price')->nullable();
-            $table->string('total');
-            $table->string('status')->default(false);
+            $table->integer('total');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
