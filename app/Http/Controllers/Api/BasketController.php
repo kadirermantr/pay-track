@@ -35,6 +35,10 @@ class BasketController extends Controller
             'product_id' => $product->id,
         ], false);
 
+        $basket->update([
+            'total' => $basket->total + $product->price,
+        ]);
+
         return response()->json([
             'message' => 'Product added to basket successfully',
         ], 201);
@@ -60,6 +64,10 @@ class BasketController extends Controller
         }
 
         $basket->products()->detach($product);
+
+        $basket->update([
+            'total' => $basket->total - $product->price,
+        ]);
 
         return response()->json([
             'message' => 'Product removed from basket successfully',
