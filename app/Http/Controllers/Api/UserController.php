@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\BasketResource;
+use App\Http\Resources\FavoriteResource;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -59,7 +60,7 @@ class UserController extends Controller
         $favorites = $user->favorites()->get();
 
         return response()->json([
-            'favorites' => $favorites,
+            'favorites' => FavoriteResource::collection($favorites),
         ]);
     }
 
