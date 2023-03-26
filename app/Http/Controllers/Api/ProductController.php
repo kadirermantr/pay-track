@@ -68,14 +68,14 @@ class ProductController extends Controller
         if ($favorites->contains($product)) {
             return response()->json([
                 'message' => 'Product already added to favorites',
-            ]);
+            ], 409);
         }
 
         $user->favorites()->sync($product->id, false);
 
         return response()->json([
             'message' => 'Product added to favorites successfully',
-        ]);
+        ], 201);
     }
 
     public function removeFavorite(Product $product): JsonResponse
@@ -86,7 +86,7 @@ class ProductController extends Controller
         if (!$favorites->contains($product)) {
             return response()->json([
                 'message' => 'Product not found in favorites',
-            ]);
+            ], 409);
         }
 
         $user->favorites()->detach($product);
@@ -104,7 +104,7 @@ class ProductController extends Controller
         if ($products->contains($product)) {
             return response()->json([
                 'message' => 'Product already added to basket',
-            ]);
+            ], 409);
         }
 
         $basket->products()->sync([
@@ -114,7 +114,7 @@ class ProductController extends Controller
 
         return response()->json([
             'message' => 'Product added to basket successfully',
-        ]);
+        ], 201);
     }
 
     public function removeBasket(Request $request, Product $product): JsonResponse
@@ -125,7 +125,7 @@ class ProductController extends Controller
         if (!$products->contains($product)) {
             return response()->json([
                 'message' => 'Product not found in basket',
-            ]);
+            ], 409);
         }
 
         $basket->products()->detach($product);
