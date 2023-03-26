@@ -64,12 +64,12 @@ class UserController extends Controller
         ]);
     }
 
-    public function baskets(User $user): JsonResponse
+    public function basket(User $user) : JsonResponse
     {
-        $baskets = $user->baskets()->get();
+        $basket = $user->basket()->get();
 
         return response()->json([
-            'baskets' => BasketResource::collection($baskets),
+            'basket' => BasketResource::collection($basket),
         ]);
     }
 }

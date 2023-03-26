@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthLoginRequest;
 use App\Http\Requests\AuthRegisterRequest;
 use App\Http\Resources\AuthResource;
+use App\Models\Basket;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,11 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        User::create($inputs);
+        $user = User::create($inputs);
+
+        Basket::create([
+            'user_id' => $user->id,
+        ]);
 
         return response()->json([
             'message' => 'Successfully created user!',

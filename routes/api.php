@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\BasketController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ShowcaseController;
@@ -25,14 +26,17 @@ Route::prefix('v1')->group(function () {
         Route::prefix('users/{user}')->group(function () {
             Route::get('products', [UserController::class, 'products']);
             Route::get('favorites', [UserController::class, 'favorites']);
-            Route::get('baskets', [UserController::class, 'baskets']);
+            Route::get('basket', [UserController::class, 'basket']);
         });
 
         Route::prefix('products/{product}')->group(function () {
             Route::post('favorite', [ProductController::class, 'addFavorite']);
             Route::delete('favorite', [ProductController::class, 'removeFavorite']);
-            Route::post('basket', [ProductController::class, 'addBasket']);
-            Route::delete('basket', [ProductController::class, 'removeBasket']);
+        });
+
+        Route::prefix('showcases/{showcase}')->group(function () {
+            Route::post('basket', [BasketController::class, 'addBasket']);
+            Route::delete('basket', [BasketController::class, 'removeBasket']);
         });
     });
 });

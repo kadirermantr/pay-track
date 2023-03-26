@@ -95,43 +95,4 @@ class ProductController extends Controller
             'message' => 'Product removed from favorites successfully',
         ]);
     }
-
-    public function addBasket(Request $request, Product $product): JsonResponse
-    {
-        $basket = Basket::findOrFail($request->basket_id);
-        $products = $basket->products()->get();
-
-        if ($products->contains($product)) {
-            return response()->json([
-                'message' => 'Product already added to basket',
-            ], 409);
-        }
-
-        $basket->products()->sync([
-            'basket_id' => $request->basket_id,
-            'product_id' => $product->id,
-        ], false);
-
-        return response()->json([
-            'message' => 'Product added to basket successfully',
-        ], 201);
-    }
-
-    public function removeBasket(Request $request, Product $product): JsonResponse
-    {
-        $basket = Basket::findOrFail($request->basket_id);
-        $products = $basket->products()->get();
-
-        if (!$products->contains($product)) {
-            return response()->json([
-                'message' => 'Product not found in basket',
-            ], 409);
-        }
-
-        $basket->products()->detach($product);
-
-        return response()->json([
-            'message' => 'Product removed from basket successfully',
-        ]);
-    }
 }
