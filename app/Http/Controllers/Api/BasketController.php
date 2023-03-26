@@ -42,7 +42,7 @@ class BasketController extends Controller
 
     public function removeBasket(BasketRequest $request, Showcase $showcase): JsonResponse
     {
-        $product = Product::findOrFail($request->product_id);
+        $product = Product::find($request->product_id);
 
         if ($showcase->products()->where('id', $product->id)->doesntExist()) {
             return response()->json([
