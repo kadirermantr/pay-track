@@ -19,7 +19,7 @@ class ShowcaseResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'is_active' => $this->is_active,
-            'user_id' => $this->user_id,
+            'user' => $this->user,
             'products' => $this->products,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
