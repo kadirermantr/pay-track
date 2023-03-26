@@ -19,7 +19,6 @@ class ShowcaseResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'status' => $this->is_active ? 'Active' : 'Inactive',
-            'user' => UserResource::make($this->user),
             'products' => $this->products,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
