@@ -19,6 +19,7 @@ class Product extends Model
         'price',
         'stock',
         'category_id',
+        'showcase_id',
     ];
 
     /**

@@ -20,6 +20,7 @@ class ProductRequest extends FormRequest
             'price' => 'required|numeric',
             'stock' => 'nullable|numeric',
             'category_id' => 'required|exists:categories,id',
+            'showcase_id' => 'required|exists:showcases,id',
         ];
     }
 }
