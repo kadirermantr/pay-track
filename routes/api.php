@@ -7,22 +7,11 @@ use App\Http\Controllers\Api\ShowcaseController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
-
-Route::group(['prefix' => 'v1'], function () {
+Route::prefix('v1')->group(function () {
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login', [AuthController::class, 'login']);
 
-    Route::group(['middleware' => 'auth:api'], function () {
+    Route::middleware(['auth:api'])->group(function () {
         Route::post('logout', [AuthController::class, 'logout']);
 
         Route::apiResources([
@@ -33,12 +22,17 @@ Route::group(['prefix' => 'v1'], function () {
 
         Route::apiResource('users', UserController::class)->except(['create', 'edit', 'store']);
 
-        Route::get('users/{user}/products', [UserController::class, 'products']);
-        Route::get('users/{user}/favorites', [UserController::class, 'favorites']);
-        Route::get('users/{user}/baskets', [UserController::class, 'baskets']);
-        Route::post('products/{product}/favorite', [ProductController::class, 'addFavorite']);
-        Route::delete('products/{product}/favorite', [ProductController::class, 'removeFavorite']);
-        Route::post('products/{product}/basket', [ProductController::class, 'addBasket']);
-        Route::delete('products/{product}/basket', [ProductController::class, 'removeBasket']);
+        Route::prefix('users/{user}')->group(function () {
+            Route::get('products', [UserController::class, 'products']);
+            Route::get('favorites', [UserController::class, 'favorites']);
+            Route::get('baskets', [UserController::class, 'baskets']);
+        });
+
+        Route::prefix('products/{product}')->group(function () {
+            Route::post('favorite', [ProductController::class, 'addFavorite']);
+            Route::delete('favorite', [ProductController::class, 'removeFavorite']);
+            Route::post('basket', [ProductController::class, 'addBasket']);
+            Route::delete('basket', [ProductController::class, 'removeBasket']);
+        });
     });
 });
