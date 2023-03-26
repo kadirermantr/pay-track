@@ -22,7 +22,7 @@ class ShowcaseController extends Controller
     public function show(Showcase $showcase): JsonResponse
     {
         return response()->json([
-            'showcase' => $showcase,
+            'showcase' => ShowcaseResource::make($showcase),
         ]);
     }
 
@@ -33,7 +33,7 @@ class ShowcaseController extends Controller
         );
 
         return response()->json([
-            'showcase' => $showcase,
+            'showcase' => ShowcaseResource::make($showcase),
         ], 201);
     }
 
@@ -44,7 +44,7 @@ class ShowcaseController extends Controller
         );
 
         return response()->json([
-            'showcase' => $showcase,
+            'showcase' => ShowcaseResource::make($showcase),
         ]);
     }
 

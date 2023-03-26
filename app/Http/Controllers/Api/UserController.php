@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 
@@ -11,17 +12,17 @@ class UserController extends Controller
 {
     public function index(): JsonResponse
     {
-        $users = User::all();
+        $users = User::withTrashed()->get();
 
         return response()->json([
-            'users' => $users,
+            'users' => UserResource::collection($users),
         ]);
     }
 
     public function show(User $user): JsonResponse
     {
         return response()->json([
-            'user' => $user,
+            'user' => UserResource::make($user),
         ]);
     }
 
@@ -30,7 +31,7 @@ class UserController extends Controller
         $user->update($request->validated());
 
         return response()->json([
-            'user' => $user,
+            'user' => UserResource::make($user),
         ]);
     }
 

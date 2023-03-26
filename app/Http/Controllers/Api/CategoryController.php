@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
+use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\JsonResponse;
 
@@ -14,14 +15,14 @@ class CategoryController extends Controller
         $categories = Category::all();
 
         return response()->json([
-            'categories' => $categories,
+            'categories' => CategoryResource::collection($categories),
         ]);
     }
 
     public function show(Category $category): JsonResponse
     {
         return response()->json([
-            'category' => $category,
+            'category' => CategoryResource::make($category),
         ]);
     }
 
@@ -30,7 +31,7 @@ class CategoryController extends Controller
         $category = Category::create($request->only('name', 'description'));
 
         return response()->json([
-            'category' => $category,
+            'category' => CategoryResource::make($category),
         ], 201);
     }
 
@@ -39,7 +40,7 @@ class CategoryController extends Controller
         $category->update($request->only('name', 'description'));
 
         return response()->json([
-            'category' => $category,
+            'category' => CategoryResource::make($category),
         ]);
     }
 

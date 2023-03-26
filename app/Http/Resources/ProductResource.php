@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ShowcaseResource extends JsonResource
+class ProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,9 +18,11 @@ class ShowcaseResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'status' => $this->is_active ? 'Active' : 'Inactive',
-            'user' => UserResource::make($this->user),
-            'products' => $this->products,
+            'image' => $this->image,
+            'price' => $this->price,
+            'stock' => $this->stock,
+            'category' => CategoryResource::make($this->category),
+            'showcase' => ShowcaseResource::make($this->showcase),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
@@ -15,14 +16,14 @@ class ProductController extends Controller
         $products = Product::all();
 
         return response()->json([
-            'products' => $products,
+            'products' => ProductResource::collection($products),
         ]);
     }
 
     public function show(Product $product): JsonResponse
     {
         return response()->json([
-            'product' => $product,
+            'product' => ProductResource::make($product),
         ]);
     }
 
@@ -33,7 +34,7 @@ class ProductController extends Controller
         );
 
         return response()->json([
-            'product' => $product,
+            'product' => ProductResource::make($product),
         ], 201);
     }
 
@@ -44,7 +45,7 @@ class ProductController extends Controller
         );
 
         return response()->json([
-            'product' => $product,
+            'product' => ProductResource::make($product),
         ]);
     }
 
