@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthLoginRequest;
 use App\Http\Requests\AuthRegisterRequest;
+use App\Http\Resources\AuthResource;
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,12 +32,9 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
 
-            return response()->json([
-                'token' => $user->createToken('login')->accessToken,
-                'token_type' => 'Bearer',
-                'expires_at' => Carbon::parse(Carbon::now()->addWeek())->toDateTimeString(),
-                'success' => 'Successfully logged in',
-            ]);
+            return response()->json(
+                AuthResource::make($user)
+            );
         }
 
         return response()->json([
