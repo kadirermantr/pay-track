@@ -15,9 +15,15 @@ composer install
 ./vendor/bin/sail artisan passport:install
 ```
 
+## Structure
 
-## API Documentation
+- **Authentication:** [Laravel Passport](https://laravel.com/docs/passport)
+- **API Documentation:** [kadirermantr.gitbook.io/paytr-api-docs](https://kadirermantr.gitbook.io/paytr-api-docs)
+- **API Testing:** Postman
+- **Database Diagrams:**
+  - [Diagram 1](https://dbdiagram.io/d/6420f4b25758ac5f172447ae)
+  - [Diagram 2](https://dbdiagram.io/d/6420f5185758ac5f172447ca)
 
-**URL:** [kadirermantr.gitbook.io/paytr-api-docs](https://kadirermantr.gitbook.io/paytr-api-docs)
+## Diagrams
 
-
+- **Database:** [dbdiagram.io/d/60b0b1f5b29a09603d13b8a7](https://dbdiagram.io/d/60b0b1f5b29a09603d13b8a7)
