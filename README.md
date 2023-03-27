@@ -17,4 +17,6 @@ composer install
 
 ## API Documentation
 
-**URL:** `https://kadirermantr.gitbook.io/paytr-api-docs`
+**URL:** [kadirermantr.gitbook.io/paytr-api-docs](https://kadirermantr.gitbook.io/paytr-api-docs)
+
+
