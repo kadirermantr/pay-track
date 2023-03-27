@@ -1,12 +1,9 @@
 # PayTR Assessment
 
-## Technologies
+## About
 
 - **Programming language:** PHP
 - **Framework:** Laravel
-
-## Structure
-
 - **Authentication:** [Laravel Passport](https://laravel.com/docs/passport)
 - **API Documentation:** [kadirermantr.gitbook.io/paytr-api-docs](https://kadirermantr.gitbook.io/paytr-api-docs)
 - **API Testing:** Postman
