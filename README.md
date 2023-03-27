@@ -23,7 +23,3 @@ composer install
 - **Database Diagrams:**
   - [Diagram 1](https://dbdiagram.io/d/6420f4b25758ac5f172447ae)
   - [Diagram 2](https://dbdiagram.io/d/6420f5185758ac5f172447ca)
-
-## Diagrams
-
-- **Database:** [dbdiagram.io/d/60b0b1f5b29a09603d13b8a7](https://dbdiagram.io/d/60b0b1f5b29a09603d13b8a7)
