@@ -1,6 +1,6 @@
 # PayTR Assessment
 
-- **Programming language:** PHP
+- **Programming Language:** PHP
 - **Framework:** Laravel
 - **Authentication:** [Laravel Passport](https://laravel.com/docs/passport)
 - **API Documentation:** [kadirermantr.gitbook.io/paytr-api-docs](https://kadirermantr.gitbook.io/paytr-api-docs)
