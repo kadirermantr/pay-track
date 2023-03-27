@@ -11,7 +11,7 @@
 cp .env.example .env
 composer install
 ./vendor/bin/sail up -d
-./vendor/bin/sail artisan migrate --seed
+./vendor/bin/sail artisan migrate
 ```
 
 
