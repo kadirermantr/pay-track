@@ -1,7 +1,5 @@
 # PayTR Assessment
 
-## About
-
 - **Programming language:** PHP
 - **Framework:** Laravel
 - **Authentication:** [Laravel Passport](https://laravel.com/docs/passport)
