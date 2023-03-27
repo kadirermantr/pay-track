@@ -17,7 +17,6 @@ class ShowcaseRequest extends FormRequest
             'name' => 'required|string',
             'description' => 'nullable|string',
             'is_active' => 'nullable|boolean',
-            'user_id' => 'required|exists:users,id',
         ];
     }
 }

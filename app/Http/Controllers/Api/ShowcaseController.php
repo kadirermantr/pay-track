@@ -7,6 +7,7 @@ use App\Http\Requests\ShowcaseRequest;
 use App\Http\Resources\ShowcaseResource;
 use App\Models\Showcase;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 
 class ShowcaseController extends Controller
 {
@@ -28,9 +29,11 @@ class ShowcaseController extends Controller
 
     public function store(ShowcaseRequest $request): JsonResponse
     {
-        $showcase = Showcase::create(
-            $request->validated()
-        );
+        $inputs = array_merge($request->validated(), [
+            'user_id' => Auth::id(),
+        ]);
+
+        $showcase = Showcase::create($inputs);
 
         return response()->json([
             'showcase' => ShowcaseResource::make($showcase),
