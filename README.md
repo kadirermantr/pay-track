@@ -11,10 +11,8 @@
 
 ## Install
 
-```bash
-cp .env.example .env
-composer install
-./vendor/bin/sail up -d
-./vendor/bin/sail artisan migrate
-./vendor/bin/sail artisan passport:install
-```
+1. `cp .env.example .env`
+2. `composer install`
+3. `./vendor/bin/sail up -d`
+4. `./vendor/bin/sail artisan migrate`
+5. `./vendor/bin/sail artisan passport:install`
