@@ -34,29 +34,29 @@ class AuthController extends Controller
     {
         $credentials = $request->validated();
 
-        if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-
-            return response()->json(
-                AuthResource::make($user)
-            );
+        if (! Auth::attempt($credentials)) {
+            return response()->json([
+                'error' => 'Email or password is wrong',
+            ], 401);
         }
 
-        return response()->json([
-            'error' => 'Email or password is wrong',
-        ], 401);
+        return response()->json(
+            AuthResource::make(Auth::user())
+        );
     }
 
     public function logout(): JsonResponse
     {
-        if (Auth::check()) {
-            Auth::user()->token()->revoke();
-
-            return response()->json(['success' => 'Successfully logged out']);
+        if (! Auth::check()) {
+            return response()->json([
+                'error' => 'Unauthorized',
+            ], 401);
         }
 
+        Auth::user()->token()->revoke();
+
         return response()->json([
-            'error' => 'Unauthorized',
-        ], 401);
+            'success' => 'Successfully logged out'
+        ]);
     }
 }
