@@ -5,9 +5,7 @@
 - **Authentication:** [Laravel Passport](https://laravel.com/docs/passport)
 - **API Documentation:** [kadirermantr.gitbook.io/paytr-api-docs](https://kadirermantr.gitbook.io/paytr-api-docs)
 - **API Testing:** Postman
-- **Database Diagrams:**
-    - [Diagram 1](https://dbdiagram.io/d/6420f4b25758ac5f172447ae)
-    - [Diagram 2](https://dbdiagram.io/d/6420f5185758ac5f172447ca)
+- **Database Diagram:** [Diagram 1](https://dbdiagram.io/d/6420f4b25758ac5f172447ae) | [Diagram 2](https://dbdiagram.io/d/6420f5185758ac5f172447ca)
 
 ## Install
 
