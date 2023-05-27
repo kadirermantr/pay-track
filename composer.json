@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "kadirermantr/pay-track",
     "type": "project",
-    "description": "PayTR Assessment",
-    "keywords": ["payment api", "laravel", "paytr"],
+    "description": "Pay Track",
+    "keywords": ["payment api", "laravel", "pay track"],
     "license": "MIT",
     "require": {
         "php": "^8.1",
