@@ -1,7 +1,7 @@
 {
     "name": "kadirermantr/pay-track",
     "type": "project",
-    "description": "Pay Track",
+    "description": "Payment API for Laravel",
     "keywords": ["payment api", "laravel", "pay track"],
     "license": "MIT",
     "require": {
