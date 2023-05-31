@@ -1,11 +1,14 @@
 <?php
 
-use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\BasketController;
-use App\Http\Controllers\Api\CategoryController;
-use App\Http\Controllers\Api\ProductController;
-use App\Http\Controllers\Api\ShowcaseController;
-use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\ {
+    AuthController,
+    BasketController,
+    CategoryController,
+    ProductController,
+    ShowcaseController,
+    UserController,
+};
+
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
