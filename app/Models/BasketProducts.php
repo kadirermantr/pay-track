@@ -10,7 +10,7 @@ class BasketProducts extends Model
     use HasFactory;
 
     /**
-     * @var bool $timestamps
+     * @var bool
      */
     public $timestamps = false;
 

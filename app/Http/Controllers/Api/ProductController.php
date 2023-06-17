@@ -5,10 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Http\Resources\ProductResource;
-use App\Models\Basket;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
@@ -83,7 +81,7 @@ class ProductController extends Controller
         $user = Auth::user();
         $favorites = $user->favorites()->get();
 
-        if (!$favorites->contains($product)) {
+        if (! $favorites->contains($product)) {
             return response()->json([
                 'message' => 'Product not found in favorites',
             ], 409);

@@ -57,7 +57,7 @@ class BasketController extends Controller
         $basket = Auth::user()->basket()->first();
         $products = $basket->products()->get();
 
-        if (!$products->contains($product)) {
+        if (! $products->contains($product)) {
             return response()->json([
                 'message' => 'Product not found in basket',
             ], 409);

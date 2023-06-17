@@ -14,7 +14,7 @@ class BasketRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'product_id'=> 'required|exists:products,id',
+            'product_id' => 'required|exists:products,id',
         ];
     }
 }

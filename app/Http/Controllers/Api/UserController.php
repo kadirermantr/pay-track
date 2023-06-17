@@ -64,7 +64,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function basket(User $user) : JsonResponse
+    public function basket(User $user): JsonResponse
     {
         $basket = $user->basket()->get();
 

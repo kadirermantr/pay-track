@@ -20,7 +20,7 @@ class Basket extends Model
         'discounted_price',
         'total',
         'status',
-        'payment'
+        'payment',
     ];
 
     public function user(): BelongsTo
