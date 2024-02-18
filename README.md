@@ -1,5 +1,6 @@
 # Pay Track
 
+- **Tech Stack:** [Tech Stack File](https://github.com/kadirermantr/pay-track/blob/master/techstack.md)
 - **Programming Language:** PHP
 - **Framework:** Laravel
 - **Authentication:** [Laravel Passport](https://laravel.com/docs/passport)
